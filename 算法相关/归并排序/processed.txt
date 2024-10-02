@@ -1,0 +1,38 @@
+Statistical profiling result from isolate-0x130008000-35293-v8.log, (2170 ticks, 2164 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+      4    0.2%          /Users/lhl/.nvm/versions/node/v20.7.0/bin/node
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      1    0.0%    0.0%  Builtin: CloneFastJSArrayFillingHoles
+      1    0.0%    0.0%  Builtin: CEntry_Return1_ArgvOnStack_NoBuiltinExit
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+      2    0.1%    0.1%  JavaScript
+      0    0.0%    0.0%  C++
+    848   39.1%   39.2%  GC
+      4    0.2%          Shared libraries
+   2164   99.7%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   2164   99.7%  UNKNOWN
+   1261   58.3%    /Users/lhl/.nvm/versions/node/v20.7.0/bin/node
+   1261  100.0%      /Users/lhl/.nvm/versions/node/v20.7.0/bin/node
+   1246   98.8%        /Users/lhl/.nvm/versions/node/v20.7.0/bin/node
+   1242   99.7%          /Users/lhl/.nvm/versions/node/v20.7.0/bin/node
+   1240   99.8%            /Users/lhl/.nvm/versions/node/v20.7.0/bin/node
+
