@@ -72,4 +72,25 @@ class HashMapChaining {
       }
     }
   }
+  #extend() {
+    const tempHasharr = this.#buckets;
+    this.#capacity *= this.#extendRatio;
+    this.#buckets = new Array(this.#capacity).fill(null).map((x) => []);
+    this.#size = 0;
+    for (const bucket of tempHasharr) {
+      for (const pair of bucket) {
+        this.put(pair.key, pair.val);
+      }
+    }
+  }
+  // 打印 hash 表
+  print(){
+    for(const bucket of this.#buckets){
+        let res = []
+        for(const pair of bucket){
+            res.push(pair.key + '->' + pair.val)
+        }
+        console.log(res)
+    }
+  }
 }
