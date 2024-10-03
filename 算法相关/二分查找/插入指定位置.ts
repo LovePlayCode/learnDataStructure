@@ -37,7 +37,7 @@ const nums = [1,2,2,3,4]
 binarySearchInsertionSimple(nums,0)
 
 /**
- * 解法 2  有重复元素的存在
+ * 解法 2  有重复元素的存在 需要查最左边的，我这个是最右边的情况。
  */
 
 function binarySearchInsertion(nums: number[],target: number){
@@ -50,10 +50,8 @@ function binarySearchInsertion(nums: number[],target: number){
         }else if(nums[mid] > target){
             j = mid - 1
         }else{
-            j = j-1
-            if(nums[j] === target){
-                return j
-            }
+            j = mid-1
+            
         }
     }
     return i
