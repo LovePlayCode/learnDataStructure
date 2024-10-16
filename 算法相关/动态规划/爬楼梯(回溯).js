@@ -15,33 +15,22 @@
  * @param {number[]} choices
  */
 function backtrack(state, n, res, choices, selected) {
-  const num = state.length
-    ? state.reduce((pre, cur) => {
-        return pre + cur;
-      })
-    : -1;
-
-  if (num === n) {
-    res.push([...state]);
-
+  if (state === n) {
+    res.push(state);
     return;
   }
   for (let [index, choice] of choices.entries()) {
-    if (num < n) {
-      state.push(choice);
-      selected[index] = true;
-      backtrack(state, n, res, choices, selected);
-      state.pop();
-      selected[index] = false;
+    if (state + choice <= n) {
+      backtrack(state + choice, n, res, choices, selected);
     }
   }
 }
 function main(n) {
-  const state = [];
+  const state = 0;
   const res = [];
 
   backtrack(state, n, res, [1, 2], [false, false]);
-  return res;
+  return res.length;
 }
 const res = main(3);
 console.log(res);
