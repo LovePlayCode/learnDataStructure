@@ -22,7 +22,7 @@ function knapsackDP(wgt, val, cap) {
         dp[i][c] = dp[i - 1][c];
       } else {
         dp[i][c] = Math.max(
-          dp[i - 1][c],
+          dp[i - 1][c], 
           dp[i - 1][c - wgt[i - 1]] + val[i - 1]
         );
       }
