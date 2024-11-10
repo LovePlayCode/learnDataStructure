@@ -20,3 +20,13 @@ var middleNode = function(head) {
     const mid = Math.floor(count / 2)
     return map.has(mid)
 };
+
+// 快慢指针
+var middleNode = function(head) {
+    slow = fast = head;
+    while (fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    return slow;
+};
