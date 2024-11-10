@@ -32,6 +32,7 @@ class Scheduler {
           res(resolve);
           this.run = this.run.filter((item) => item !== runTask);
           if (this.queue.length) {
+            
             this.queue.shift()();
           }
         });
