@@ -7,6 +7,10 @@
 
         终止条件：
         p >= r
+
+    1. 原地排序
+    2. 不稳定
+    3. 时间复杂度：最好时间复杂度: O(nlogn) 最坏时间复杂度: O(n^2)    
  */
 
 function quick_sort(A, n) {
@@ -44,6 +48,7 @@ function quick_sort_c(A, left, right) {
     return;
   }
   const pivot = partition(A, left, right);
+  console.log(pivot);
   quick_sort_c(A, left, pivot - 1);
   quick_sort_c(A, pivot + 1, right);
 }
