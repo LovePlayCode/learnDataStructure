@@ -2,6 +2,7 @@
  *
  * @param {number[]} nums
  * 1. 选择排序,进行位置的交换
+ * 2. 时间复杂度：O(n^2) 因为每次都需要找最小值，所以最好情况下的时间复杂度，最快情况下的时间复杂度，平均时间复杂度都是O(n^2)
  */
 function selectionSort(nums) {
   let n = nums.length;
