@@ -30,8 +30,12 @@ function partition(nums, left, right) {
   const pivot = nums[right];
   let i = left;
   let j = left;
-  while (j <= right) {
-    if (nums[j] < pivot) {
+  /**  p 是左指针
+   * 1. 假定nums[p,i-1] 都是小于pivot 那么 [i,right] 是未处理的数据。  那么只需要跟 pivot进行比较，如果nums[j] < pivot，就交换位置。
+   * 2. 最后 i 指针指向的地方，其实就是pivot该在的位置。
+   */
+  while (j < right) {
+    if (nums[j] <= pivot) {
       // [nu] = []
       [nums[i], nums[j]] = [nums[j], nums[i]];
       // nums[i] = nums[j]
@@ -48,11 +52,11 @@ function quick_sort_c(A, left, right) {
     return;
   }
   const pivot = partition(A, left, right);
-  console.log(pivot);
+
   quick_sort_c(A, left, pivot - 1);
   quick_sort_c(A, pivot + 1, right);
 }
 
-const nums = [1, 5, 6, 2, 3, 4];
+const nums = [1, 5, 6, 99, 38, 23233, 2, 3, 4];
 quick_sort(nums, nums.length);
 console.log(nums);

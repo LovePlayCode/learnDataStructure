@@ -8,6 +8,9 @@
  *
  * @param {number[]} nums
  * @param {number} n
+ *  归并排序是稳定的排序算法， 因为会优先选择左边的元素，所以相对顺序是不变的。
+ *  归并排序最好情况时间复杂度、最坏情况时间复杂度、平均时间复杂度都是O(nlogn)
+ *  空间复杂度是 O(n) 因为每次需要一个 n 空间的数组来存储数据。
  */
 function merge_sort(nums, n) {
   merge_sort_c(nums, 0, nums.length - 1);
@@ -42,14 +45,14 @@ function merge(nums, p, mid, r) {
   let j = mid + 1;
   let temp = new Array(n);
   let k = 0;
+
   while (i <= mid && j <= r) {
-    if (nums[i] < nums[j]) {
+    if (nums[i] <= nums[j]) {
       temp[k++] = nums[i++];
     } else {
       temp[k++] = nums[j++];
     }
   }
-  console.log("temp==", temp);
   while (i <= mid) {
     temp[k++] = nums[i++];
   }
