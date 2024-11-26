@@ -100,6 +100,36 @@ class Heap {
       i = maxIndex;
     }
   }
+
+  /**
+   * 构建堆
+   * 1. 只需要堆化非叶子节点即可。 从i/2开始从上往下堆化。
+   * @param {number[]} a
+   * @param {number} n
+   */
+  buildHeap() {
+    const n = this.n;
+    for (let i = n / 2; i >= 1; --i) {
+      this.heapify(i);
+    }
+  }
+
+  /**
+   * 堆排序
+   * 1. 先将下标为 n的数据放到堆顶
+   * 2. 将剩下的元素继续构成
+   */
+  sort() {
+    this.buildHeap();
+    let k = this.n;
+    while (k > 1) {
+      const temp = this.arr[k];
+      this.arr[k] = this.arr[1];
+      this.arr[1] = temp;
+      k--;
+      this.heapify(k);
+    }
+  }
 }
 
 const heap = new Heap(10);
