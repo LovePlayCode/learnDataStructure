@@ -49,6 +49,36 @@ class Graph {
     }
     process.stdout.write(t + " "); // 打印当前节点
   }
+
+  //  递推公式 设 recurDfs(w) 为从节点w 开始执行深度优先搜索
+  // 如果 w = t 或者 found = true 停止递归
+  // 标记访问的节点 w， 判断当前节点是否访问过， 如果没有，则赋值 prev，继续进行递归。
+  dfs(s, t) {
+    // 有一个内部函数用来递归，终止条件是找到 t 或者 w === t 结束递归
+    // 1. 遍历数组递归即可。
+    // 2. 遍历的是二维数组中每个一维数组，通过遍历一维数组找到答案。
+    let found = false;
+    const visited = new Array(this.vertices).fill(false);
+    const prev = new Array(this.vertices).fill(-1);
+    function recurDfs(w, t, adj) {
+      if (found === true) {
+        return;
+      }
+      visited[w] = true;
+      if (w === t) {
+        found = true;
+        return;
+      }
+      for (let i = 0; i < adj[w].length; i++) {
+        if (!visited) {
+          const cur = adj[w][i];
+          prev[cur] = w;
+          recurDfs(cur, t, adj);
+        }
+      }
+    }
+    recurDfs(s, t, this.adj);
+  }
 }
 
 // 示例用法
