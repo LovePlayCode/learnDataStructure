@@ -47,8 +47,11 @@ function generateGS(b, m) {
 function moveByGS(j, m, suffix, prefix) {
   const k = m - 1 - j;
   if (suffix[k] !== -1) {
+    // j- suffix[k] 是滑动到j 的位置，+1 才是滑动到 j 后面的一位。
     return j - suffix[k] + 1;
   }
+
+  // 为什么要j+2的原因是  j+1 是好后缀， j+2 是好后缀的后缀子串， 因为后缀子串的长度是比父亲串的长度小 1的。
   for (let r = j + 2; r <= m - 1; r++) {
     if (prefix[m - r] === true) {
       return r;
