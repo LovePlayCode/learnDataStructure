@@ -20,7 +20,7 @@ function maxNonOverlappingIntervals(intervals) {
       end = r;
     }
   }
-  console.log(arr);
+
   return count;
 }
 
