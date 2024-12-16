@@ -18,7 +18,8 @@ function minDistBT(matrix, n) {
 
   for (let row = 1; row < n; row++) {
     for (let col = 1; col < n; col++) {
-      dp[row][col] = Math.min(matrix[row - 1][col], matrix[row][col - 1]);
+      dp[row][col] =
+        Math.min(matrix[row - 1][col], matrix[row][col - 1]) + matrix[row][col];
     }
   }
   return dp[n - 1][n - 1];
