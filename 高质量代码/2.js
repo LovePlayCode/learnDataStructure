@@ -18,13 +18,16 @@ function increment(number) {
       } else {
         sum -= 10;
         carry = 1; // Set carry for the next digit
-        // Update the number string by replacing the current character with the sum
-        number = number.slice(0, i) + sum + number.slice(i + 1);
       }
     } else {
-      // No carry needed, just update the current position and break the loop
-      number = number.slice(0, i) + sum + number.slice(i + 1);
-      break;
+      carry = 0; // No carry needed, break out of the loop
+    }
+
+    // Update the number string by replacing the current character with the sum
+    number = number.slice(0, i) + sum + number.slice(i + 1);
+
+    if (carry === 0) {
+      break; // If no carry, break early to stop unnecessary iterations
     }
   }
 

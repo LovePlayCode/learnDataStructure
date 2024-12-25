@@ -1,77 +1,45 @@
-/**
- *
- * @param {number} n
- */
-function printToMaxOfNDigits(n) {
-  let num = 1;
-  let i = 0;
-  while (i++ < n) {
-    num *= 10;
-  }
-  for (let i = 1; i < num; i++) {
-    console.log("数值==", i);
-  }
-}
-
-// printToMaxOfNDigits(3);
-
-function printToMaxOfNDigitsUseString(n) {
+function printNumbers(n) {
+  // 处理边界情况：如果n为0，直接返回
   if (n <= 0) {
     return;
   }
-  let str = "0".repeat(n);
-  let arr = str.split("");
-  //   arr[n] = "\0";
-  str = arr.join("");
 
-  while (!Increment(arr)) {
-    PrintNumber(arr);
+  // 初始化当前数字为 "1"
+  let currentNumber = "1";
+
+  // 使用循环，从 1 开始到最大 n 位数
+  while (currentNumber.length <= n) {
+    console.log(currentNumber);
+
+    // 通过模拟字符串加法实现递增
+    currentNumber = incrementString(currentNumber);
   }
 }
-/**
- *
- * @param {string[]} number
- */
-function Increment(number) {
-  let isOverflow = false;
-  let nTakeOver = 0;
-  let nLength = number.length;
-  for (let i = nLength - 1; i >= 0; i--) {
-    let nSum = number[i] - "0" + nTakeOver;
-    if (i === nLength - 1) {
-      nSum++;
-    }
 
-    if (nSum >= 10) {
-      if (i === 0) {
-        isOverflow = true;
-      } else {
-        nSum -= 10;
-        nTakeOver = 1;
-        number[i] = "0" + nSum;
-      }
+// 模拟字符串加法，递增字符串表示的数字
+function incrementString(str) {
+  let carry = 1;
+  let result = [];
+
+  // 从字符串末尾开始进行加法操作
+  for (let i = str.length - 1; i >= 0; i--) {
+    let sum = parseInt(str[i]) + carry;
+    if (sum >= 10) {
+      result.unshift("0");
+      carry = 1;
     } else {
-      number[i] = "0" + nSum;
-      break;
+      result.unshift(sum.toString());
+      carry = 0;
     }
   }
-  return isOverflow;
-}
-/**
- *
- * @param {string[]} number
- */
-function PrintNumber(number) {
-  let isBeginning = true;
-  let nLength = number.length;
-  for (let i = 0; i < nLength; i++) {
-    if (isBeginning && number[i] !== "0") {
-      isBeginning = false;
-    }
-    if (!isBeginning) {
-      console.log(number[i]);
-    }
+
+  // 如果还有进位，插入到前面
+  if (carry === 1) {
+    result.unshift("1");
   }
+
+  return result.join("");
 }
 
-printToMaxOfNDigitsUseString(3);
+// 测试打印1到最大的3位数
+printNumbers(3);
