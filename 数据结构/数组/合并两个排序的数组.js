@@ -7,33 +7,32 @@
  * @param {number[]} A1
  * @param {number[]} A2
  */
-function mergeArr(A1, A2) {
-  // 定义两个指针: p1,p2
-  let p1 = 0;
-  let p2 = A1.length + A2.length - 1;
-  let p3 = A2.length - 1;
-  for (let i = A1.length - 1; i > 0; i--) {
-    if (A1[i] !== null && A1[i] !== undefined) {
-      p1++;
-    }
-  }
-  // A1有足够的内存空间，所以 p1 指针移动到 A1 的末尾，p2 移动到整个数组的末位进行循环比对。 然后进行数据的填充
-  while (p1 >= 0 && p3 >= 0) {
-    if (A1[p1] > A2[p3]) {
-      A1[p2] = A1[p1];
-      p1--;
+function mergeArr(A1, m, A2, n) {
+  let n1Right = m - 1;
+  let n2Right = n - 1;
+  let currentIndex = m + n - 1;
+  while (n1Right >= 0 && n2Right >= 0) {
+    if (A1[n1Right] < A2[n2Right]) {
+      A1[currentIndex--] = A2[n2Right--];
     } else {
-      A1[p2] = A2[p3];
-      p3--;
+      A1[currentIndex--] = A1[n1Right--];
     }
-
-    p2--;
   }
 
-  while (p3 >= 0) {
-    A1[p2] = A2[p3];
-    p3--;
-    p2--;
+  // 退出循环之后，还有一种情况是 A2 还有剩余，直接添加即可
+  while (n2Right >= 0) {
+    A1[currentIndex--] = A2[n2Right--];
   }
-  return A1;
 }
+// const A1 = [1];
+// const A2 = [0];
+
+const A1 = [0];
+const A2 = [1, 100];
+const arr1 = new Array(A1.length + A2.length).fill(0);
+for (let i = 0; i < A1.length; i++) {
+  arr1[i] = A1[i];
+}
+
+mergeArr(arr1, A1.length, A2, A2.length);
+console.log(arr1);
