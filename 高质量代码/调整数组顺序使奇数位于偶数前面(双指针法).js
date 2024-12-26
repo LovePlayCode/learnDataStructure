@@ -23,6 +23,14 @@ function ReorderOddEven(arr, len) {
   }
 }
 
+function isEven(n) {
+  return (n & 1) === 0;
+}
+
+function isOdd(n) {
+  return (n & 1) === 1;
+}
+
 const arr = [2, 1, 9, 8];
 ReorderOddEven(arr, arr.length);
 console.log(arr);
