@@ -11,6 +11,10 @@ class ListNode {
  *
  * @param {ListNode} head
  * @param {number} k
+ * 为了程序的健壮性，主要有3 个问题需要解决：
+ * 1. 头节点为null
+ * 2. k 为 0
+ * 3. k大于节点数量。
  */
 function FindKthToTail(head, k) {
   if (head === null && head === undefined) {
@@ -18,6 +22,9 @@ function FindKthToTail(head, k) {
   }
 
   // 判断 k 是否为 0
+  if (head === null || k === 0) {
+    return null;
+  }
   const step = k - 1;
   let p1Node = head;
   let p2Node = head;
@@ -34,6 +41,11 @@ function FindKthToTail(head, k) {
       p1Node = p1Node.next;
     }
     p2Node = p2Node.next;
+  }
+
+  // 说明 k的值比链表本身的节点大。
+  if (count < k) {
+    return null;
   }
   return p1Node;
 }
