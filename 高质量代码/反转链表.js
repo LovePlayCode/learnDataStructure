@@ -28,6 +28,7 @@ function reversalListNode(node) {
 }
 
 function recursion(head) {
+  console.log("head===", head);
   if (
     head === null ||
     head === undefined ||
