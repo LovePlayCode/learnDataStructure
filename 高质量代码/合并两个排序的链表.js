@@ -53,6 +53,42 @@ function mergeSortLinkList(A1, A2) {
   return resP;
 }
 
+// 递归解法
+//
+function recursion(A1p, A2p) {
+  if (A1p === null || A1p === undefined) {
+    console.log(A2p);
+    return A2p;
+  }
+  if (A2p === null || A2p === undefined) {
+    console.log(A1p, A2p);
+    return A1p;
+  }
+  if (A1p.val < A2p.val) {
+    A1p.next = recursion(A1p.next, A2p);
+    return A1p;
+  } else {
+    A2p.next = recursion(A1p, A2p.next);
+    return A2p;
+  }
+}
+
+var mergeTwoLists = function (list1, list2) {
+  if (list1 === null) {
+    return list2;
+  }
+  if (list2 === null) {
+    return list1;
+  }
+  if (list1.val < list2.val) {
+    list1.next = mergeTwoLists(list1.next, list2);
+    return list1;
+  } else {
+    list2.next = mergeTwoLists(list1, list2.next);
+    return list2;
+  }
+};
+
 const listNode1 = new ListNode(0);
 listNode1.next = new ListNode(20);
 listNode1.next.next = new ListNode(300);
@@ -61,8 +97,9 @@ const listNode2 = new ListNode(5);
 listNode2.next = new ListNode(10);
 listNode2.next.next = new ListNode(200);
 
-let res = mergeSortLinkList(listNode1, listNode2);
-
+let res = recursion(listNode1, listNode2);
+let r = JSON.stringify(res);
+console.log(r);
 while (res !== null && res !== undefined) {
   console.log(res.val);
   res = res.next;

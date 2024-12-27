@@ -3,7 +3,7 @@ class ListNode {
   next = null;
   constructor(val, next) {
     this.val = val;
-    this.next = next;
+    this.next = next ? next : null;
   }
 }
 
