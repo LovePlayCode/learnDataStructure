@@ -27,8 +27,13 @@ function reversalListNode(node) {
   return resP;
 }
 
+// 这个函数用于反转链表
+// 思考: 他该怎么样反转, 将问题分解为子问题, 考虑当前如何反转，只有一个子问题的情况下。
+// 如果 A 要反转，那么先反转 A 后面的链表。然后 A.next.next = A  A.next = null
+// 思考结束条件: head === null || head.next === null,因为要找头节点，所以要判断next === null 返回即可。 第二个作用是为了避免next.next时报错
+// return toujiedian OK
+
 function recursion(head) {
-  console.log("head===", head);
   if (
     head === null ||
     head === undefined ||

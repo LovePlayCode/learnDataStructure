@@ -54,6 +54,11 @@ function mergeSortLinkList(A1, A2) {
 }
 
 // 递归解法
+// 设想一下这个函数可以将A1链表和 A2 链表合并
+// 思考: 想想当前两个节点怎么合并
+// 1. 如果A1.val < A2.val 那么相当于A1.next = fx(A1.next,A2) 反之 return A1 或者 A2  按照前面的条件返回
+//
+// 2. 如果A1 === null return A2 反之
 //
 function recursion(A1p, A2p) {
   if (A1p === null || A1p === undefined) {
