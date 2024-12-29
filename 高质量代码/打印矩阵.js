@@ -25,7 +25,7 @@ function PrintMatrixColckwisely(numbers, cols, rows) {
 function PrintMatrixInCircle(numbers, cols, rows, start) {
   const endX = cols - 1 - start;
   const endY = rows - 1 - start;
-
+  console.log(endX, endY);
   let res = [];
   // 从左到右
 
@@ -61,9 +61,9 @@ function PrintMatrixInCircle(numbers, cols, rows, start) {
   }
 }
 
-function generateRandomArr(n) {
-  const arr = new Array(n).fill(0).map((item) => {
-    const newArr = new Array(n).fill(0);
+function generateRandomArr(rows, cols) {
+  const arr = new Array(rows).fill(0).map((item) => {
+    const newArr = new Array(cols).fill(0);
     return newArr.map((item) => {
       const res = Math.random() * 10;
       return res.toFixed(0);
@@ -72,6 +72,6 @@ function generateRandomArr(n) {
   return arr;
 }
 
-const arr = new generateRandomArr(5);
-console.log("原始数组:", arr);
-PrintMatrixColckwisely(arr, 5, 5);
+const arr = new generateRandomArr(1, 0);
+console.log("原始数组:", [[1], [2], [3], [4]]);
+PrintMatrixColckwisely([[1], [2], [3], [4]], 1, 4);
