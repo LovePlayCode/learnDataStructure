@@ -19,28 +19,24 @@ function FindPath(pRoot, expectedSum) {
 }
 
 function recursionFindPath(pRoot, expectedSum, state, currentSum) {
-  if (pRoot === null) {
-    return pRoot;
+  if (root === null) {
+    return root;
   }
-  state.push(pRoot.val);
-  currentSum += pRoot.val;
-
-  if (
-    currentSum === expectedSum &&
-    pRoot.left === null &&
-    pRoot.right === null
-  ) {
-    console.log("当前路径==", state);
+  if (currentSum === expectedSum) {
+    console.log("值为::", state);
+    return;
   }
-
-  recursionFindPath(pRoot.left, expectedSum, state, currentSum);
-  recursionFindPath(pRoot.right, expectedSum, state, currentSum);
-  state.pop();
+  if (pRoot.val + currentSum < expectedSum) {
+    state.push(pRoot.val);
+    recursionFindPath(pRoot.left, expectedSum, state, pRoot.val + currentSum);
+    recursionFindPath(pRoot.right, expectedSum, state, pRoot.val + currentSum);
+    state.pop();
+  }
 }
 
 const root = new binaryTree(10);
 root.left = new binaryTree(5);
 root.right = new binaryTree(12);
 root.left.left = new binaryTree(4);
-root.left.right = new binaryTree(7);
-FindPath(root, 22);
+root.left.right = new binaryTree(4);
+FindPath(root);
