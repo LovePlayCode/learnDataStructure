@@ -5,24 +5,22 @@
  * @returns {string[]} 长度为 m 的所有组合
  */
 function getCombinationsRecursive(str, m) {
-  // 边界条件
-  if (m === 0) return [""]; // 长度为 0 的组合是空字符串
-  if (str.length < m) return []; // 字符不足以生成长度为 m 的组合
+  if (m === 0) {
+    return [""];
+  }
+  if (str.length < m) {
+    return [];
+  }
+  let firstStr = str[0];
+  const remainingStr = str.slice(1);
 
-  // 分解为两个子问题
-  const firstChar = str[0];
-  const rest = str.slice(1);
-
-  // 1. 包含第一个字符的组合
-  const includeFirst = getCombinationsRecursive(rest, m - 1).map(
-    (comb) => firstChar + comb
+  const includeList = getCombinationsRecursive(remainingStr, m - 1).map(
+    (item) => {
+      return firstStr + item;
+    }
   );
-
-  // 2. 不包含第一个字符的组合
-  const excludeFirst = getCombinationsRecursive(rest, m);
-
-  // 合并两种情况
-  return includeFirst.concat(excludeFirst);
+  const excludeList = getCombinationsRecursive(remainingStr, m);
+  return includeList.concat(excludeList);
 }
 
 /**
