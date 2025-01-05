@@ -34,9 +34,9 @@ function backtrack(row, n, state, res, cols, diags1, diags2) {
 function nQueens(n) {
   const state = Array.from({ length: n }, () => Array(n).fill("#"));
 
-  // cols 记录是否有皇后，相当于数几条线
+  // cols 记录是否有皇后，
   const cols = Array(n).fill(false);
-  // 记录主对角线是否有皇后 大小为 -(n-1) 到 n-1 总共是 2*n-1个元素
+  // 记录主对角线是否有皇后 大小为 -(n-1) 到 n-1 总共是 2*n-1个元素，相当于数几条线
   const diags1 = Array(2 * n - 1).fill(false);
 
   // 记录次对角线是否有皇后
@@ -46,5 +46,5 @@ function nQueens(n) {
   backtrack(0, n, state, res, cols, diags1, diags2);
   return res;
 }
-const res = nQueens(4);
+const res = nQueens(8);
 console.log("结果为::", res);
