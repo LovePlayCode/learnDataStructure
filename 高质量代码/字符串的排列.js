@@ -21,7 +21,7 @@ function permuteString(str) {
       const newPrefix = prefix + remaining[i];
 
       const newRemaining = remaining.slice(0, i) + remaining.slice(i + 1);
-      console.log(newRemaining);
+
       permute(newPrefix, newRemaining);
     }
   }
@@ -31,6 +31,6 @@ function permuteString(str) {
 }
 
 // 测试
-const input = "abcd";
+const input = "abc";
 const permutations = permuteString(input);
 console.log(permutations);
