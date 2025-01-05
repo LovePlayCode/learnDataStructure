@@ -43,6 +43,6 @@ function nQueens(n) {
     }
   }
   backtrack(0, n);
-  console.log(res);
+  console.log(res.length);
 }
-nQueens(4);
+nQueens(8);

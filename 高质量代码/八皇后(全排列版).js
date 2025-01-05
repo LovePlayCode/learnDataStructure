@@ -48,4 +48,3 @@ function solveEightQueens() {
 // 测试
 const solutions = solveEightQueens();
 console.log(`共有 ${solutions.length} 种解法：`);
-console.log(solutions);
