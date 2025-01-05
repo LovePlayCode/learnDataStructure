@@ -1,43 +1,29 @@
-/**
- * @param {number[]} postorder
- * @return {boolean}
- */
-var verifyTreeOrder = function (postorder) {
-  return VerifySquenceOfBST(postorder, postorder.length);
-};
+function verifyPostorder(postorder) {
+  // 辅助函数判断是否是后序遍历
+  function helper(start, end) {
+    if (start >= end) return true; // 子数组长度为 0 或 1 时，合法
 
-/**
- *
- * @param {number[]} sequence
- * @param {number} length
- */
-function VerifySquenceOfBST(sequence, length) {
-  if (sequence === null && length < 0) {
-    return false;
-  }
+    const root = postorder[end]; // 当前子树的根节点
+    let mid = start;
 
-  // 找到他的根节点
-  const root = sequence[length - 1];
-
-  let i = 0;
-  for (; i < length - 1; i++) {
-    if (sequence[i] > root) {
-      break;
+    // 找到左子树的结束位置（第一个大于 root 的元素位置）
+    while (postorder[mid] < root) {
+      mid++;
     }
-  }
-  for (let j = i; j < length - 1; j++) {
-    if (sequence[j] < root) {
-      return false;
+
+    // 检查右子树部分是否所有元素都大于 root
+    for (let i = mid; i < end; i++) {
+      if (postorder[i] < root) return false;
     }
+
+    // 递归检查左子树和右子树
+    return helper(start, mid - 1) && helper(mid, end - 1);
   }
 
-  let left = true;
-  if (i > 0) {
-    left = VerifySquenceOfBST(sequence, i);
-  }
-  let right = true;
-  if (i < length - 1) {
-    right = VerifySquenceOfBST(sequence.slice(i), length - i - 1);
-  }
-  return left && right;
+  return helper(0, postorder.length - 1);
 }
+const number = [5, 7, 6, 9, 11, 10, 8];
+const number2 = [7, 4, 6, 5];
+// 测试
+console.log(verifyPostorder(number)); // true
+console.log(verifyPostorder(number2)); // false
