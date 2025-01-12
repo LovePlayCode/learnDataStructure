@@ -43,6 +43,8 @@ function merge(nums, p, mid, r) {
   const n = nums.length;
   let i = p;
   let j = mid + 1;
+
+  // 这里可以优化一下，因为其实只需要存当前数据即可。没必要创建这么大数组
   let temp = new Array(n);
   let k = 0;
 
@@ -56,6 +58,7 @@ function merge(nums, p, mid, r) {
   while (i <= mid) {
     temp[k++] = nums[i++];
   }
+
   while (j <= r) {
     temp[k++] = nums[j++];
   }

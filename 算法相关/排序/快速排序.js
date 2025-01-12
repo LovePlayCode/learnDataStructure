@@ -14,6 +14,7 @@
  */
 
 function quick_sort(A, n) {
+  // 一个左闭右开的区间
   quick_sort_c(A, 0, n - 1);
 }
 
