@@ -13,27 +13,22 @@ class ComplexListNode {
  * @param {ComplexListNode} pNode2
  */
 function FindFirstCommonNode(pNode1, pNode2) {
-  const stack1 = [];
-  const stack2 = [];
-  let p1Temp = pNode1;
-  let p2Temp = pNode2;
-  while (p1Temp) {
-    stack1.push(p1Temp);
-    p1Temp = p1Temp.pNext;
+  // 定义两个变量用于保存两个链表的长度
+  let node1Length = 0;
+  let node2Length = 0;
+  let p1NodeTemp = pNode1;
+  let p2NodeTemp = pNode2;
+  while (p1NodeTemp) {
+    node1Length++;
+    p1NodeTemp = p1NodeTemp.pNext;
   }
 
-  while (p2Temp) {
-    stack2.push(p2Temp);
-    p2Temp = p2Temp.pNext;
+  while (p2NodeTemp) {
+    console.log(p2NodeTemp);
+    node2Length++;
+    p2NodeTemp = p2NodeTemp.pNext;
   }
-
-  // 依次出栈， 最后出栈的就是结果
-  let res = null;
-  while (stack1[stack1.length - 1] === stack2[stack2.length - 1]) {
-    res = stack1.pop();
-    stack2.pop();
-  }
-  return res;
+  console.log(node1Length, node2Length);
 }
 
 const commonNode = new ComplexListNode(13);
@@ -43,6 +38,7 @@ node1.pNext = new ComplexListNode(12);
 node1.pNext.pNext = commonNode;
 const node2 = new ComplexListNode(19);
 node2.pNext = new ComplexListNode(18);
-node2.pNext.pNext = commonNode;
+node2.pNext.pNext = new ComplexListNode(9999);
+node2.pNext.pNext.pNext = commonNode;
 const res = FindFirstCommonNode(node1, node2);
 console.log("res==", res);
