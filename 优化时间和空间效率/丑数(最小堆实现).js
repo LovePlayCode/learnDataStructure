@@ -86,3 +86,4 @@ function nthUglyNumberHeap(n) {
 
 // 测试
 console.log(nthUglyNumberHeap(10)); // 输出 12
+console.log(nthUglyNumberHeap(1500)); // 输出 859963392
