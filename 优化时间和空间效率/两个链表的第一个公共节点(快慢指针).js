@@ -24,11 +24,29 @@ function FindFirstCommonNode(pNode1, pNode2) {
   }
 
   while (p2NodeTemp) {
-    console.log(p2NodeTemp);
     node2Length++;
     p2NodeTemp = p2NodeTemp.pNext;
   }
-  console.log(node1Length, node2Length);
+
+  // 找到步差之后，重新复制，继续进行寻找
+  p1NodeTemp = pNode1;
+  p2NodeTemp = pNode2;
+  const stepDifference = Math.abs(node1Length - node2Length);
+  if (node1Length < node2Length) {
+    for (let i = 0; i < stepDifference; i++) {
+      p2NodeTemp = p2NodeTemp.pNext;
+    }
+  } else {
+    for (let i = 0; i < stepDifference; i++) {
+      p1NodeTemp = p1NodeTemp.pNext;
+    }
+  }
+
+  while (p1NodeTemp !== p2NodeTemp && p1NodeTemp && p2NodeTemp) {
+    p1NodeTemp = p1NodeTemp.pNext;
+    p2NodeTemp = p2NodeTemp.pNext;
+  }
+  return p1NodeTemp === p2NodeTemp ? p1NodeTemp : null;
 }
 
 const commonNode = new ComplexListNode(13);
