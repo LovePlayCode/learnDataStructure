@@ -3,7 +3,7 @@
  * 归并排序使用的是分治思想，将大问题分解为小问题，小问题解决了大问题也就解决了。
  * 分治是一种解决办法的思想，递归是一种编程技巧。
  */
-let count = 0
+let count = 0;
 
 /**
  *
@@ -14,23 +14,23 @@ let count = 0
  *  空间复杂度是 O(n) 因为每次需要一个 n 空间的数组来存储数据。
  */
 function merge_sort(nums, n) {
-    merge_sort_c(nums, 0, nums.length - 1);
-    return nums;
+  merge_sort_c(nums, 0, nums.length - 1);
+  return nums;
 }
 
 // 递归函数
 function merge_sort_c(A, p, r) {
-    if (p >= r) {
-        return;
-    }
-    const mid = Math.floor((p + r) / 2);
+  if (p >= r) {
+    return;
+  }
+  const mid = Math.floor((p + r) / 2);
 
-    // 先排序左边部分
-    merge_sort_c(A, p, mid);
-    // 排序右边部分
-    merge_sort_c(A, mid + 1, r);
-    // 合并
-    merge(A, p, mid, r);
+  // 先排序左边部分
+  merge_sort_c(A, p, mid);
+  // 排序右边部分
+  merge_sort_c(A, mid + 1, r);
+  // 合并
+  merge(A, p, mid, r);
 }
 
 /**
@@ -41,31 +41,31 @@ function merge_sort_c(A, p, r) {
  * 4. 将 temp数组复制到 nums
  */
 function merge(nums, p, mid, r) {
-    const n = nums.length;
-    let i = p;
-    let j = mid + 1;
-    let temp = new Array(n);
-    let k = 0;
+  const n = nums.length;
+  let i = p;
+  let j = mid + 1;
+  let temp = new Array(n);
+  let k = 0;
 
-    while (i <= mid && j <= r) {
-
-        if (nums[i] <= nums[j]) {
-            temp[k++] = nums[i++];
-        } else {
-            temp[k++] = nums[j++];
-            count+=mid-i+1
-        }
+  while (i <= mid && j <= r) {
+    if (nums[i] <= nums[j]) {
+      temp[k++] = nums[i++];
+    } else {
+      // 因为已经排好序了，所以当前的已经比后面的大了，后面的会更大，直接添加即可。
+      temp[k++] = nums[j++];
+      count += mid - i + 1;
     }
-    while (i <= mid) {
-        temp[k++] = nums[i++];
-    }
-    while (j <= r) {
-        temp[k++] = nums[j++];
-    }
-    for (let curIndex = p, t = 0; curIndex <= r; curIndex++, t++) {
-        nums[curIndex] = temp[t];
-    }
+  }
+  while (i <= mid) {
+    temp[k++] = nums[i++];
+  }
+  while (j <= r) {
+    temp[k++] = nums[j++];
+  }
+  for (let curIndex = p, t = 0; curIndex <= r; curIndex++, t++) {
+    nums[curIndex] = temp[t];
+  }
 }
 
-const res = merge_sort([1,5,6,2,3,4]);
-console.log(res,count);
+const res = merge_sort([7, 5, 6, 4]);
+console.log(res, count);
