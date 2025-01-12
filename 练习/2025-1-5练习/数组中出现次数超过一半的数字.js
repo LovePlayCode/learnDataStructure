@@ -1,24 +1,16 @@
 function majorityElement(nums) {
-  let candidate = null;
   let count = 0;
-  for (let num of nums) {
+  let resNum = "";
+  for (let i = 0; i < nums.length; i++) {
     if (count === 0) {
-      candidate = num;
-      count = 1;
-    } else if (num === candidate) {
+      resNum = nums[i];
+    } else if (nums[i] === resNum) {
       count++;
     } else {
       count--;
     }
   }
-  // 2. 验证候选人是否为众数
-  count = 0; // 重置计数
-  for (let num of nums) {
-    if (num === candidate) {
-      count++;
-    }
-  }
-  return count > Math.floor(nums.length / 2) ? candidate : null;
+  return resNum;
 }
 
 // 测试
