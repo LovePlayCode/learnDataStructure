@@ -5,7 +5,6 @@
  */
 function FindGreatestSumOfSubArray(pData, len) {
   let sum = Number.MIN_SAFE_INTEGER;
-  let arr = [];
   // const baseVal = 0
   let nCurNum = 0;
   for (let i = 0; i < len; i++) {
