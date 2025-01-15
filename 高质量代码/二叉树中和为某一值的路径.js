@@ -23,7 +23,6 @@ function recursionFindPath(pRoot, expectedSum, state, currentSum) {
     return root;
   }
   if (currentSum === expectedSum) {
-    console.log("值为::", state);
     return;
   }
   if (pRoot.val + currentSum < expectedSum) {
