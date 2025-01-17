@@ -1,5 +1,4 @@
 /**
- *
  * @param {number[]} nums
  * @param {number} length
  */
