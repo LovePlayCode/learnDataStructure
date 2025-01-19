@@ -13,6 +13,6 @@ function leftRotateString(str, n) {
 
 // 测试
 console.log(leftRotateString("abcdefg", 2)); // 输出: "cdefgab"
-console.log(leftRotateString("abcdefg", 8)); // 输出: "abcdefg" (n大于字符串长度，结果相同)
+console.log(leftRotateString("abcdefg", 8)); // 输出: "bcdefga" (n大于字符串长度，结果相同)
 console.log(leftRotateString("abcdefg", 0)); // 输出: "abcdefg" (旋转0次，结果相同)
 console.log(leftRotateString("abcdefg", 7)); // 输出: "abcdefg" (n等于字符串长度，结果相同)
