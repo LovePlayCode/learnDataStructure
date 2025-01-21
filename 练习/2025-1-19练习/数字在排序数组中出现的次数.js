@@ -21,7 +21,7 @@ function GetNumberOfFirst(nums, k, left, right) {
   const mid = (left + right) >> 1;
   const curVal = nums[mid];
   if (curVal === k) {
-    if ((mid > 1 && nums[mid - 1] !== k) || mid === 0) {
+    if ((mid > 0 && nums[mid - 1] !== k) || mid === 0) {
       return mid;
     } else {
       right = mid - 1;
