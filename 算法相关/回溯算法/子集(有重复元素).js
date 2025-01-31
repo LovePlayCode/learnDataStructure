@@ -21,7 +21,7 @@ var subsetsWithDup = function (nums) {
       return;
     }
     for (let i = start; i < nums.length; i++) {
-      //
+      // 只需要考虑当前层即可，没必要考虑下一层，人脑没办法把所有可能性都考虑，因为是递归，所以考虑当前层即可。
       if (i > 0 && i > start && nums[i] === nums[i - 1]) {
         continue;
       }
