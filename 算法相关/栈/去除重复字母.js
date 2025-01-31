@@ -12,7 +12,7 @@ var removeDuplicateLetters = function (s) {
     count[char.charCodeAt(0) - "a".charCodeAt(0)]++;
   }
 
-  // 遍历字符串
+  // 遍历字符串  "bca" 有一个条件是不能打乱其他字符的相对位置。
   for (let char of s) {
     let index = char.charCodeAt(0) - "a".charCodeAt(0);
     count[index]--; // 当前字符处理一次，减少剩余次数
@@ -37,3 +37,6 @@ var removeDuplicateLetters = function (s) {
   // 返回结果
   return stack.join("");
 };
+
+const res = removeDuplicateLetters("bca");
+console.log(res);
