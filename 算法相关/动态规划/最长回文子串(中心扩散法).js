@@ -18,9 +18,11 @@ function longestPalindrome(str) {
     let curMaxLen = Math.max(leftLen, rightLen);
     if (curMaxLen > maxLen) {
       maxLen = curMaxLen;
+      console.log("i==", i);
       start = i - Math.floor((curMaxLen - 1) / 2);
     }
   }
+  console.log(start);
   return str.slice(start, start + maxLen);
 }
 
@@ -34,7 +36,7 @@ function expandAroundCenter(str, left, right) {
     left--;
     right++;
   }
-  console.log(left, right);
+
   return right - left - 1;
 }
-console.log(longestPalindrome("babad"));
+console.log(longestPalindrome("abcdefghijjihgfedcba"));
