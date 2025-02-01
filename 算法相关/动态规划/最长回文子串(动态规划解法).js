@@ -7,7 +7,7 @@ function longestPalindrome(str) {
     return "";
   }
 
-  // 定义 dp 数组
+  // 定义 dp 数组 dp[i][j] 表示长度i,j是否为回文
   const dp = new Array(str.length).fill(false).map((item) => {
     const ar = new Array(str.length).fill(false);
     return ar;
