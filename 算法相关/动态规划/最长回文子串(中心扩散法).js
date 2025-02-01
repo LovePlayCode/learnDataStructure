@@ -20,7 +20,6 @@ function longestPalindrome(str) {
     let curMaxLen = Math.max(leftLen, rightLen);
     if (curMaxLen > maxLen) {
       maxLen = curMaxLen;
-      console.log("i==", i);
       // i的含义是中心节点，通过长度以及中心节点找到开始节点
       start = i - Math.floor((curMaxLen - 1) / 2);
     }
