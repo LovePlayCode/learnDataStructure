@@ -26,7 +26,7 @@ function longestPalindrome(str) {
       const j = i + len - 1;
       // 当前左右都相等，有两种情况，为长度为 2 或者 i+1和 j-1 依旧是一个子串
       if (str[i] === str[j]) {
-        if (len === 2 || str[i + 1][j - 1]) {
+        if (len === 2 || dp[i + 1][j - 1]) {
           dp[i][j] = true;
           if (len > maxLen) {
             maxLen = len;
