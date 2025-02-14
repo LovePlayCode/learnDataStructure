@@ -1,20 +1,21 @@
+/**
+ * 查找第一个大于等于给定值的元素(二分查找)
+ * @param {number[]} nums
+ * @param {number} val
+ */
 function bsearch(nums, val) {
-  const n = nums.length;
+  const len = nums.length;
   let left = 0;
-  let right = n - 1;
-
+  let right = len - 1;
   while (left <= right) {
-    const mid = left + Math.floor((right - left) / 2);
-
+    const mid = (left + right) >> 1;
     if (nums[mid] < val) {
       left = mid + 1;
     } else {
       right = mid - 1;
     }
   }
-
-  // 如果 left 超过了 right，说明找到第一个大于等于 val 的位置
-  return left < n && nums[left] >= val ? left : -1;
+  return left < len && nums[left] >= val ? left : -1;
 }
 
 const arr = [1, 3, 4, 5, 6, 8, 8, 8, 11, 18];
