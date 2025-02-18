@@ -30,21 +30,27 @@ var reversePairs = function (record) {
     let temp = [];
     let k = 0;
     while (i <= mid && j <= right) {
+      // 当前nums[i] <= nums[j] 说明 nums[j]到 mid 之前的元素全部比nums[i]小，满足逆序对的定义
       if (nums[i] <= nums[j]) {
         temp.push(nums[i]);
+        count += j - mid - 1
         i++;
       } else {
-        count += mid - i + 1;
-        temp.push(nums[j]); 
+        // count += mid - i + 1;
+        temp.push(nums[j]);
         j++;
       }
     }
+
+    // 当循环结束之后，发现第一个区间的数据没走完，说明第二个区间的数据都比现在的数据小，还需要处理
     while (i <= mid) {
       temp.push(nums[i++]);
+      count += j - mid - 1
     }
 
     while (j <= right) {
       temp.push(nums[j++]);
+      
     }
 
     for (let l1 = left, t = 0; l1 <= right; l1++, t++) {
@@ -56,7 +62,4 @@ var reversePairs = function (record) {
   mergeNumber(record, 0, record.length - 1);
   return count;
 };
-
-const nums = [7, 5, 6, 4];
-console.log(reversePairs(nums));
-console.log(nums);
+export {};
