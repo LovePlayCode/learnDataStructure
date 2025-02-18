@@ -1,3 +1,7 @@
+interface Fn {
+  (numbers: number[], left: number, mid: number, right: number): void
+}
+
 function sortArray(nums: number[]): number[] {
   const len = nums.length;
   /**
@@ -50,4 +54,4 @@ function sortArray(nums: number[]): number[] {
 const nums = [1, 5, 6, 99, 38, 23233, 2, 3, 4];
 const arr = sortArray(nums);
 console.log(arr);
-export {};
+export { };
