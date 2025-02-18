@@ -5,7 +5,9 @@
  */
 var findKthLargest = function (nums, k) {
     const indexToFind = nums.length - k;
-
+    if(k === 1 && nums.length === 1){
+      return nums[0]
+    }
   // 写出递归公式: findElement(k) = /
   return quick_sort_c(nums, 0, nums.length - 1, indexToFind);
 };
@@ -42,5 +44,6 @@ function partition(nums, left, right) {
   return i;
 }
 
-const res = findKthLargest([3, 2, 1, 5, 6, 4], 2);
-console.log("res==", res);
+// const res = findKthLargest([3, 2, 1, 5, 6, 4], 2);
+const res1 = findKthLargest([1], 1);
+console.log("res1==", res1);
