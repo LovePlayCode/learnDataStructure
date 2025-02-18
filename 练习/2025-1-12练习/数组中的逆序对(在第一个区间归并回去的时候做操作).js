@@ -1,3 +1,8 @@
+
+/**
+ * 可以看看 liweiwei 大佬的这个视频: https://www.bilibili.com/video/BV1YU4y1f7i4/?spm_id_from=333.999.list.card_archive.click 讲的非常好
+ * leetcode链接: https://leetcode.cn/problems/shu-zu-zhong-de-ni-xu-dui-lcof/submissions/594485953/
+ */
 var reversePairs = function (record) {
   let count = 0;
   /**
