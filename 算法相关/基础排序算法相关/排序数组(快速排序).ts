@@ -6,7 +6,7 @@ function sortArray(nums: number[]): number[] {
       return;
     }
     // 比分界点小的都放到左边，分界点大的都放到右边，分界点在中间
-    // [0,i) 都是比pivot小的，[i,right) 比 pivot大  i的位置就是pivot当前存在的位置。
+    // [0,i) 都是比pivot小的，[i,j) 比 pivot大  i的位置就是pivot当前应该存在的位置。
     function partition(nums: number[], left: number, right: number) {
       let i = left;
       let j = left;
