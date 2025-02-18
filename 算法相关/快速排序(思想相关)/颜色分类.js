@@ -1,6 +1,7 @@
 /**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
+ *
  */
 var sortColors = function (nums) {
   const len = nums.length;
@@ -8,9 +9,13 @@ var sortColors = function (nums) {
     return;
   }
 
-  // [0,p0) === 0
-  // [p0,i) === 1
-  // (p2,len-1] = 2
+  /**
+   * 定义循环不变量相关
+   *  编码的过程中要严格遵守循环不变量，避免出错
+   * [0,p0) === 0 代表红色
+   * [p0,i) === 1 代表白色
+   * (p2,len-1] = 2 代表蓝色
+   */
   let p0 = 0;
   let i = 0;
   let p2 = len - 1;
