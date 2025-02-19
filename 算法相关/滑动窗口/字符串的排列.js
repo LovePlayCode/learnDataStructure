@@ -40,8 +40,8 @@ var checkInclusion = function (s1, s2) {
       }
     }
     right++;
-    // 说明当前字符串的种类是满足的，只需判断频次是否满足即可
-    // 为什么不可以直接返回，因为找的只是种类，有可能不是连续的子串
+
+    // 说明满足了条件，[left,right)结尾的字符串中满足s2的要求，但是可能不是连续的，需要继续进行判断
     while (winCount === s1Len) {
       console.log(right, left);
       if (right - left === pLen) {
@@ -62,3 +62,4 @@ var checkInclusion = function (s1, s2) {
 
 const res = checkInclusion("ab", "eidbaooo");
 console.log(res);
+export {}
