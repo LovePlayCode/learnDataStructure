@@ -44,7 +44,7 @@ function backtrack(state, choices, res,selected,resArr) {
     }
     // 遍历所有选择
     for (let [index,choice] of choices.entries()) {
-        // 每一轮都要判断一次，如果有重复的，直接结束此次循环即可。
+        // 每一轮都要判断一次，如果有重复的，直接结束此次循环即可。只是判断同层的元素。如果重复了，就直接跳过即可。
         if(set.has(choice)){
             continue
         }
