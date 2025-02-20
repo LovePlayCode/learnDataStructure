@@ -6,8 +6,9 @@
 function subsets(nums: number[]): number[][] {
   const len = nums.length;
   const res: number[][] = [];
-  const dfs = (start, subset) => {
+  const dfs = (start: number, subset: number[]) => {
     res.push([...subset]);
+    console.log(subset);
     for (let i = start; i < len; i++) {
       subset.push(nums[i]);
       dfs(i + 1, subset);
@@ -38,4 +39,6 @@ function subsets2(nums: number[]): number[][] {
   }
   return res;
 }
+const res = subsets([1, 2, 3]);
+console.log(res);
 export {};
