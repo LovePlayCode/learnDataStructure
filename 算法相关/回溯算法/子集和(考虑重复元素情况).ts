@@ -22,7 +22,7 @@ function subsetSumII(nums: number[], target: number): number[][] {
         continue;
       }
       state.push(nums[i]);
-      dfs(i, total + nums[i], state);
+      dfs(i + 1, total + nums[i], state);
       state.pop();
     }
   };
