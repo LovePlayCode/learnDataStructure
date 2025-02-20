@@ -1,3 +1,9 @@
+
+/**
+ * 
+ * 子集
+ * leetcode: https://leetcode.cn/problems/subsets/
+ */
 function subsets(nums: number[]): number[][] {
     const len = nums.length
     const res: number[][] = []
