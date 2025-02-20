@@ -10,7 +10,6 @@ function subsets(nums: number[]): number[][] {
       res.push([...stack]);
       return;
     }
-    //
     dfs(index + 1, stack);
     stack.push(nums[index]);
     dfs(index + 1, stack);
