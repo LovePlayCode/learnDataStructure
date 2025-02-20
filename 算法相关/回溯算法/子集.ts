@@ -8,7 +8,6 @@ function subsets(nums: number[]): number[][] {
   const res: number[][] = [];
   const dfs = (start: number, subset: number[]) => {
     res.push([...subset]);
-    console.log(subset);
     for (let i = start; i < len; i++) {
       subset.push(nums[i]);
       dfs(i + 1, subset);
