@@ -12,7 +12,7 @@ function threeSum(nums: number[]): number[][] {
     if (nums[i] > 0) {
       return res;
     }
-    // 如果有重复的元素，直接跳过
+    // 如果有重复的元素，直接跳过。 其实第一个元素已经被使用过了，所以可以直接跳过后面的元素
     if (i > 0 && nums[i] === nums[i - 1]) {
       continue;
     }
@@ -34,6 +34,7 @@ function threeSum(nums: number[]): number[][] {
         while (left < right && nums[right] === nums[right - 1]) {
           right--;
         }
+        // 在这里处理的时候，元素正好是重复元素后一位的元素，所以整个逻辑是没问题的。
         left++;
         right--;
       }
