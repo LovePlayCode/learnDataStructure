@@ -10,13 +10,13 @@ function subsetSumI(nums: number[], target: number): number[][] {
     if (total === target) {
       res.push([...state]);
     }
-    for (let i = 0; i < len; i++) {
+    for (let i = start; i < len; i++) {
       if (total + nums[i] > target) {
         continue;
       }
 
       state.push(nums[i]);
-      dfs(start, state, total + nums[i], target);
+      dfs(i, state, total + nums[i], target);
       state.pop();
     }
   };
