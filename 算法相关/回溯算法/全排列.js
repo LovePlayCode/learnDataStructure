@@ -11,6 +11,7 @@ function backtrack(state, res, choices, selected) {
   }
   // 对它进行选择
   for (const [index, choice] of choices.entries()) {
+    // 剪枝
     if (selected[index]) {
       continue;
     }
@@ -45,8 +46,8 @@ for (let i = 1; i <= 1; i++) {
   const res = main(arr);
   console.log(res);
 }
-// const resData = main([1,2,3])
-// console.log('resData===',resData)
+const resData = main([1, 2, 3]);
+console.log("resData===", resData);
 
 /**
  * 递归
