@@ -26,6 +26,7 @@ function subsets2(nums: number[]): number[][] {
     const dfs = (start: number,state: number[],count: number)=>{
         if(state.length === count){
             res.push([...state])
+            return
         }
         for(let i = start;i < len; i++){
             state.push(nums[i])
