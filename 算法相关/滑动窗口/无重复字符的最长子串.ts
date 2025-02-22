@@ -14,10 +14,12 @@ function lengthOfLongestSubstring(s: string): number {
     if (i !== 0) {
       set.delete(s.charAt(i - 1));
     }
+    // 找到重复的之后，跳出循环
     while (rk + 1 < n && !set.has(s.charAt(rk + 1))) {
       set.add(s.charAt(rk + 1));
       rk++;
     }
+    // 判断找到的元素是否是最大的
     ans = Math.max(ans, rk - i + 1);
   }
   return ans;
