@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function throttle(
+      fn,
+      interval,
+      option = { leading: true, tralling: false }
+    ) {
+      let lastTime = 0;
+      const { leading } = option ?? {};
+      let timer = null;
+      return (...args) => {
+        const newFn = fn.bind(this);
+        const nowTime = new Date().getTime();
+        if (leading === false && lastTime === 0) {
+          lastTime = nowTime;
+        }
+        const reamainTime = interval - (nowTime - lastTime);
+        if (reamainTime <= 0) {
+          newFn(...args);
+          if (timer) {
+            clearTimeout(timer);
+            timer = null;
+          }
+          lastTime = nowTime;
+        } else {
+          timer = setTimeout(() => {
+            newFn(...args);
+            // 这里感觉用new Date().getTime()也 OK，也合理
+            lastTime = leading === false ? 0 : new Date().getTime();
+          }, reamainTime);
+        }
+      };
+    }
+  </script>
+</html>
