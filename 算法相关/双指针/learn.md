@@ -6,7 +6,7 @@
 1. 盛水最多的容器: [text](https://leetcode.cn/problems/container-with-most-water/description/)
 2. 三数之和: [text](https://leetcode.cn/problems/3sum/description/)
 3. 最接近的三数之和: [text](https://leetcode.cn/problems/3sum-closest/)
-4. 两数之和 2: [text](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/description/)
+4. 两数之和 2: [text](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/description/) 这道题不做了，有点傻逼。
 5. 长按键入: [text](https://leetcode.cn/problems/long-pressed-name/description/)
 
 ### 复习
