@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label
+      >用户名:
+      <input id="input" />
+    </label>
+  </body>
+  <script>
+    function Fn(fn, date, options) {
+      const { first } = options ?? {};
+      let flag = first;
+      let timer = null;
+      return (...args) => {
+        const _this = this;
+        if (flag) {
+          fn.apply(_this, args);
+          flag = false;
+          return;
+        }
+        if (timer !== null) {
+          clearTimeout(timer);
+        }
+        timer = setTimeout(() => {
+          fn();
+        }, date);
+      };
+    }
+    const input = document.getElementById("input");
+    const de = Fn(() => {
+      console.log(1);
+    }, 1000);
+    input.addEventListener("input", () => {
+      de();
+    });
+  </script>
+</html>
