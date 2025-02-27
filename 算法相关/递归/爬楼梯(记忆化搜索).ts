@@ -1,6 +1,7 @@
 /**
  *
  * 爬楼梯，记忆化搜索(典型的空间换时间) 利用一个数组或其他方式存储计算出来的值，达到缓存的目的。
+ * 思考方式: 从顶至底   思考方式是一种从顶至底的思考方式
  * leetcode: https://leetcode.cn/problems/climbing-stairs/submissions/603733066/
  */
 function climbStairs(n: number): number {
