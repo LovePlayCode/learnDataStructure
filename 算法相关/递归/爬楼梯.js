@@ -1,9 +1,12 @@
-function main(n){
-    if(n === 1){
-        return 1
-    }
-    return main(n-1) + 1
+function main(n) {
+  if (n === 1) {
+    return 1;
+  }
+  if (n === 2) {
+    return 2;
+  }
+  return main(n - 1) + main(n - 2);
 }
 
-const res = main(9)
-console.log('res==',res)
+const res = main(44);
+console.log("res==", res);
