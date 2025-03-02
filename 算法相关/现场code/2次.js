@@ -2,6 +2,7 @@ function main(str) {
   if (typeof str !== "string") {
     throw new TypeError("str 类型错误");
   }
+  // 新建一个 map
   const map = new Map();
   for (let i = 0; i < str.length; i++) {
     const char = str[i];
