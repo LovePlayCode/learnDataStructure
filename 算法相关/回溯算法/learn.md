@@ -6,3 +6,4 @@
 2. [全排列 2](https://leetcode.cn/problems/permutations-ii/description/) 数组中有重复元素
 3. [子集](https://leetcode.cn/problems/subsets/) 子集
 4. [子集2](https://leetcode.cn/problems/subsets-ii/)
+5. [组合](https://leetcode.cn/problems/combinations/)
