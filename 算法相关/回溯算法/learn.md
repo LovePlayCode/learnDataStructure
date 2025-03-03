@@ -7,3 +7,4 @@
 3. [子集](https://leetcode.cn/problems/subsets/) 子集
 4. [子集2](https://leetcode.cn/problems/subsets-ii/)
 5. [组合](https://leetcode.cn/problems/combinations/)
+6. [组合总和](https://leetcode.cn/problems/combination-sum/description/)
