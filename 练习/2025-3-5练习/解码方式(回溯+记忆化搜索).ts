@@ -2,7 +2,9 @@ function numDecodings(s) {
     const memo = {};
 
     function backtrack(index,state) {
+        console.log('memo==',memo)
         if (index === s.length) {
+            console.log(state)
             return 1;
         }
         if (s[index] === '0') {
@@ -20,7 +22,7 @@ function numDecodings(s) {
             count += backtrack(index + 2,state);
            
         }
-
+        console.log(`index==${index}value==${memo[index]}`)
         memo[index] = count;
         return count;
     }
@@ -28,6 +30,3 @@ function numDecodings(s) {
     return backtrack(0,[]);
 }
 
-// 示例用法
-const s = "11106";
-console.log(numDecodings(s)); // 输出解码方法的总数
