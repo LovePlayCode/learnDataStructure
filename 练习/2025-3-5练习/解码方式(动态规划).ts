@@ -14,7 +14,6 @@ function numDecodings(s: string): number {
         if (oneDigit >= 1 && oneDigit <= 9) {
             dp[i] += dp[i - 1];
         }
-        console.log(typeof twoDigits,dp)
         if (twoDigits >= 10 && twoDigits <= 26) {
              console.log(twoDigits,dp)
             dp[i] += dp[i - 2];
