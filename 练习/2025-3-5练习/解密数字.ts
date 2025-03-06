@@ -1,13 +1,13 @@
-function numDecodings(s) {
+function crackNumber(ciphertext: number): number {
     const memo = {};
-
+    const s = ciphertext + ''
     function backtrack(index,state) {
+      
         if (index === s.length) {
+        
             return 1;
         }
-        if (s[index] === '0') {
-            return 0;
-        }
+       
         if (memo[index] !== undefined) {
             return memo[index];
         }
@@ -20,7 +20,7 @@ function numDecodings(s) {
             count += backtrack(index + 2,state);
            
         }
-
+        console.log(`index==${index}value==${memo[index]}`)
         memo[index] = count;
         return count;
     }
@@ -28,6 +28,6 @@ function numDecodings(s) {
     return backtrack(0,[]);
 }
 
-// 示例用法
-const s = "11106";
-console.log(numDecodings(s)); // 输出解码方法的总数
+
+
+export {}
