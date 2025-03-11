@@ -6,7 +6,7 @@
  机器人以左上角单元格为起始点，每次只能向下或者向右移动一步，直至到达右下角单元格。请返回从左上角到右下角的最小路径和。
  */
 
- function minPathSum(grid: number[][]): number {
+function minPathSum(grid: number[][]): number {
   const i = grid.length;
   const j = grid[0].length;
 
