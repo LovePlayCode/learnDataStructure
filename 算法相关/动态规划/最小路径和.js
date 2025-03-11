@@ -6,15 +6,26 @@
  机器人以左上角单元格为起始点，每次只能向下或者向右移动一步，直至到达右下角单元格。请返回从左上角到右下角的最小路径和。
  */
 
+ function minPathSum(grid: number[][]): number {
+  const i = grid.length;
+  const j = grid[0].length;
+
+  return minPathSumDFS(grid,i,j)
+}
 /**
- *
- * @param {number[][]} grid
- * @param {number} i
- * @param {number} j
- * @param {number[]} state
- * @param {number[]} res
- */
+*
+* @param {number[][]} grid
+* @param {number} i
+* @param {number} j
+* @param {number[]} state
+* @param {number[]} res
+*/
 function minPathSumDFS(grid, i, j) {
+  console.log(i,j)
+const memo = new Array(i).fill(-1).map(item=>{
+  return new Array(j).fill(-1)
+})
+const dfs = (i, j) => {
   // 若为左上角单元格，则终止搜索
   if (i === 0 && j === 0) {
     return grid[0][0];
@@ -23,26 +34,17 @@ function minPathSumDFS(grid, i, j) {
   if (i < 0 || j < 0) {
     return Infinity;
   }
+  if(memo[i][j]!==-1){
+    return memo[i][j]
+  }
+
   // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
-  const up = minPathSumDFS(grid, i - 1, j);
-  const left = minPathSumDFS(grid, i, j - 1);
+  const up = dfs(i - 1, j);
+  const left = dfs(i, j - 1);
   // 返回从左上角到 (i, j) 的最小路径代价
+  memo[i][j] =  Math.min(left, up) + grid[i][j];
   return Math.min(left, up) + grid[i][j];
 }
-
-function main(grid, i, j) {
-  const state = [];
-  const res = [];
-  minPathSumDFS(grid, 0, 0, state, res);
-  return res;
+return dfs(i-1,j-1)
 }
-const res = minPathSumDFS(
-  [
-    [1, 3, 1],
-    [1, 5, 1],
-    [4, 2, 1],
-  ],
-  3 - 1,
-  3 - 1
-);
-console.log(res);
+
