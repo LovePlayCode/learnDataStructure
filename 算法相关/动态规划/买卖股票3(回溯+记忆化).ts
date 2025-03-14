@@ -11,6 +11,7 @@ function maxProfit(prices: number[]): number {
     let maxPrice = dfs(index + 1, transactions, holding) || 0;
     // 如果当前持有股票
     if (holding) {
+      // 可以卖掉，然后交易数+1，且改变持股的状态
       maxPrice = Math.max(
         maxPrice,
         prices[index] + dfs(index + 1, transactions + 1, 0)
