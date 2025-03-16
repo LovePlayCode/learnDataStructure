@@ -1,3 +1,9 @@
+/**
+ *
+ * @param prices
+ * @returns
+ * 做动态规划还是要想明白状态转移方程，这样才可以事半功倍。
+ */
 function maxProfit(prices: number[]): number {
   const len = prices.length;
 
