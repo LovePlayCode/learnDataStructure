@@ -15,6 +15,8 @@ function maxProfit(prices: number[]): number {
 
   dp[0][0] = -prices[0];
 
+  // 进行状态的填充和状态的转移
+  // 一个循环搞定
   for (let i = 1; i < len; i++) {
     // 当前持股 前一天持股 | 前一天不持股且不是冷静期可以买
     dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][2] - prices[i]);
@@ -23,7 +25,7 @@ function maxProfit(prices: number[]): number {
     // 当前不持股且不是冷静期,i-1也必须是不持股的，如果是持股的状态卖了，那么i天就是冷冻期了
     dp[i][2] = Math.max(dp[i - 1][1], dp[i - 1][2]);
   }
-  console.log(dp);
+
   return Math.max(dp[len - 1][1], dp[len - 1][2]);
 }
 
