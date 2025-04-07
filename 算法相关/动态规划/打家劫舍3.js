@@ -1,6 +1,7 @@
 /**
  * leetcode: https://leetcode.cn/problems/house-robber-iii/
  * 无后效性: 动态规划在解决子问题的过程中，一旦某一个子问题的求解结果确定以后，就不会再被修改。求解的过程形成了一张[有向无环图]
+ * 题解: https://leetcode.cn/problems/house-robber-iii/
  */
 
 var rob = function (root) {
