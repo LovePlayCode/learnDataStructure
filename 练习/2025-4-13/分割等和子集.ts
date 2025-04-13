@@ -15,12 +15,12 @@ function canPartition(nums: number[]): boolean {
   const midVal = (sum >> 1) + 1;
 
   // 判断这个值是奇数还是偶数. 如果是奇数，直接返回 false.
-  // 这里有个结论: 如果要将数组分割成两个子集。那么这个数组的和必须为偶数。
+  // 这里有个结论: 如果要将数组分割成两个子集。那么这个数组的和必须为偶数。 这是一个必要条件，但不是充分必要条件。
   if ((sum & 1) === 1) {
     return false;
   }
 
-  // 初始化 DP
+  // 初始化 DP 表示从数组[0, i]这个子区间挑选出一些正整数，每个数只能用一次，使得这些数恰好等于 target。
   const dp = new Array(len).fill(0).map((item) => {
     return new Array(midVal).fill(false);
   });
