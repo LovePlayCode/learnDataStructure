@@ -19,6 +19,7 @@ function findContinuousSequence(s) {
       start++;
     }
   }
+  console.log('测试000222')
 }
 
 // 测试
