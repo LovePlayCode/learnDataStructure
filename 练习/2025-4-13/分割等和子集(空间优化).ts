@@ -10,7 +10,7 @@ function canPartition(nums: number[]): boolean {
   const sum = nums.reduce((pre, cur) => {
     return pre + cur;
   });
-
+  // 测试提交
   // 获取中间值
   const midVal = (sum >> 1) + 1;
 
