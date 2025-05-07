@@ -1,4 +1,5 @@
 function climbStairs(n: number): number {
+  // dp[i] 表示爬到第x级台阶的方案数。
   const dp = new Array(n + 1).fill(0);
   dp[0] = 1;
   dp[1] = 1;
