@@ -3,7 +3,7 @@ function numDecodings(s: string): number {
     return 0;
   }
   const len = s.length;
-  const dp = new Array(len + 1);
+  const dp = new Array(len + 1).fill(0);
   dp[0] = 1;
   dp[1] = 1;
   for (let i = 2; i <= len; i++) {
