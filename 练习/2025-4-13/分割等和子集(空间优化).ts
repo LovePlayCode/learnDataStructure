@@ -7,6 +7,7 @@ function canPartition(nums: number[]): boolean {
   const len = nums.length;
 
   // 得到累加的值
+
   const sum = nums.reduce((pre, cur) => {
     return pre + cur;
   });
