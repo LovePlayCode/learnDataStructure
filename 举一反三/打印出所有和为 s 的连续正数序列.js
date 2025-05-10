@@ -4,6 +4,7 @@ function findContinuousSequence(s) {
   let sum = 3;
   while (start <= s >> 1) {
     sum = 0;
+    
     let res = [];
     for (let i = start; i <= end; i++) {
       sum += i;
