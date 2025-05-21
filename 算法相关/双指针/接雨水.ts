@@ -1,3 +1,9 @@
+/**
+ * Receive rainwater topic
+ * topic address: https://leetcode.cn/problems/trapping-rain-water/solutions/692342/jie-yu-shui-by-leetcode-solution-tuvc/
+ * @param height Receive rainwater Arr
+ * @returns
+ */
 function trap(height: number[]): number {
   let left = 0;
   let right = height.length - 1;
