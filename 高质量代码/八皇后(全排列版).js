@@ -4,7 +4,7 @@
 function solveEightQueens() {
   const results = [];
   const columns = [0, 1, 2, 3, 4, 5, 6, 7]; // 初始列号
-
+  // Test
   /**
    * 判断是否有对角线冲突
    * @param {number[]} arr 当前排列
