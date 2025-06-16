@@ -7,6 +7,7 @@ function lengthOfLIS(nums) {
     }
     for (let j = 0; j < length; j++) {
       if (nums[j] < nums[length]) {
+        // 1,2,3,1,4
         memo[length] = Math.max(memo[length], dfs(j));
       }
     }
@@ -18,3 +19,4 @@ function lengthOfLIS(nums) {
   }
   return ans;
 }
+console.log(lengthOfLIS([1, 2, 3, 1, 4]));
