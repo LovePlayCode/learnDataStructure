@@ -8,8 +8,9 @@ function findMaxAverage(nums: number[], k: number): number {
     if (left < k - 1) {
       continue;
     }
-    console.log("sum==", sum, sum / 4);
+
     ans = Math.max(ans, sum / k);
+    // this must write Otherwise  Array out of bounds
     const out = left - k + 1;
     sum = sum - nums[out];
   }
